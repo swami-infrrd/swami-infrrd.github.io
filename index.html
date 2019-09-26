@@ -19,9 +19,7 @@
   </head>
   <body>
     <h2>JIRA Issue Collector Demo</h2>
-    <a href="#" id="feedback_button" class="btn btn-primary btn-large"
-      >Report feedback</a
-    ><br />
+    <br />
     <a href="#" id="bug_button" class="btn btn-primary btn-large">Report bug</a>
 
     <!-- JIRA Issue Collector - append this at the bottom of <body> -->
@@ -40,27 +38,6 @@
       // safely use jquery here since the issue collector will load it for you
       $(document).ready(function() {
         window.ATL_JQ_PAGE_PROPS = $.extend(window.ATL_JQ_PAGE_PROPS, {
-          // ==== feedback collector ====
-          "5a636f91": {
-            // === custom trigger function ===
-            triggerFunction: function(showCollectorDialog) {
-              $("#feedback_button").click(function(e) {
-                e.preventDefault();
-                showCollectorDialog();
-              });
-            },
-
-            // === default and hidden field values ===
-            fieldValues: {
-              // default values
-              summary: "Feedback for new website designs",
-              description: "The font doesn't quite look right",
-
-              // hidden field value
-              priority: "2"
-            }
-          },
-
           // ==== bug collector ====
           "5a636f91": {
             // === custom trigger function ===
