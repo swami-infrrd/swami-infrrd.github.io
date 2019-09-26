@@ -3,8 +3,11 @@
         <h2>JIRA Issue Collector Demo</h2>
         <a href="#" id="feedback_button" class='btn btn-primary btn-large'>Report feedback</a><br />
         <a href="#" id="bug_button" class='btn btn-primary btn-large'>Report bug</a>
-    
-          <!-- JIRA Issue Collector - append this at the bottom of <body> -->
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js" integrity="sha256-36hEPcG8mKookfvUVvEqRkpdYV1unP6wvxIqbgdeVhk=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <!-- JIRA Issue Collector - append this at the bottom of <body> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" integrity="sha256-p6xU9YulB7E2Ic62/PX+h59ayb3PBJ0WFTEQxq0EjHw=" crossorigin="anonymous" />
         <script type="text/javascript" src="https://infrrd.atlassian.net/s/en_US-ydn9lh-418945332/803/1088/1.2/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=5a636f91>"></script>
         <script type="text/javascript" src="https://infrrd.atlassian.net/s/en_US-ydn9lh-418945332/803/1088/1.2/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=5a636f91"></script> 
      
@@ -17,7 +20,7 @@
                 window.ATL_JQ_PAGE_PROPS = $.extend(window.ATL_JQ_PAGE_PROPS, {
      
                     // ==== feedback collector ====
-                      '<collectorId_1>' : {
+                      '5a636f91' : {
      
                         // === custom trigger function ===
                           triggerFunction : function( showCollectorDialog ) {
@@ -42,7 +45,7 @@
                     }
      
                     // ==== bug collector ====
-                    , '<collectorId_2>' : {
+                    , '5a636f91' : {
                         // === custom trigger function ===
     
                           triggerFunction : function( showCollectorDialog ) {
