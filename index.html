@@ -1,95 +1,106 @@
-<body>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"
+      integrity="sha256-p6xU9YulB7E2Ic62/PX+h59ayb3PBJ0WFTEQxq0EjHw="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"
+      integrity="sha256-36hEPcG8mKookfvUVvEqRkpdYV1unP6wvxIqbgdeVhk="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h2>JIRA Issue Collector Demo</h2>
+    <a href="#" id="feedback_button" class="btn btn-primary btn-large"
+      >Report feedback</a
+    ><br />
+    <a href="#" id="bug_button" class="btn btn-primary btn-large">Report bug</a>
 
-        <h2>JIRA Issue Collector Demo</h2>
-        <a href="#" id="feedback_button" class='btn btn-primary btn-large'>Report feedback</a><br />
-        <a href="#" id="bug_button" class='btn btn-primary btn-large'>Report bug</a>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js" integrity="sha256-36hEPcG8mKookfvUVvEqRkpdYV1unP6wvxIqbgdeVhk=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-        <!-- JIRA Issue Collector - append this at the bottom of <body> -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" integrity="sha256-p6xU9YulB7E2Ic62/PX+h59ayb3PBJ0WFTEQxq0EjHw=" crossorigin="anonymous" />
-        <script type="text/javascript" src="https://infrrd.atlassian.net/s/en_US-ydn9lh-418945332/803/1088/1.2/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=5a636f91>"></script>
-        <script type="text/javascript" src="https://infrrd.atlassian.net/s/en_US-ydn9lh-418945332/803/1088/1.2/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=5a636f91"></script> 
-     
-        <!-- We will customize JIRA in the following script tag -->
-    
-        <script type="text/javascript">
-            // safely use jquery here since the issue collector will load it for you
-            $(document).ready(function() {
-     
-                window.ATL_JQ_PAGE_PROPS = $.extend(window.ATL_JQ_PAGE_PROPS, {
-     
-                    // ==== feedback collector ====
-                      '5a636f91' : {
-     
-                        // === custom trigger function ===
-                          triggerFunction : function( showCollectorDialog ) {
-                            $('#feedback_button').click( function(e) {
-                                e.preventDefault();
-                                showCollectorDialog();
-                            });
-                         }
-     
-                        // === default and hidden field values ===
-                        , fieldValues : {
-     
-                            // default values
-                              summary : 'Feedback for new website designs'
-                            , description : 'The font doesn\'t quite look right'
-     
-                            // hidden field value
-                            , priority : '2'
-                            
-                        }
-     
-                    }
-     
-                    // ==== bug collector ====
-                    , '5a636f91' : {
-                        // === custom trigger function ===
-    
-                          triggerFunction : function( showCollectorDialog ) {
-                            $('#bug_button').click( function(e) {
-                                e.preventDefault();
-                                showCollectorDialog();
-                            });
-                         }
-    
-    
-                        // === additional environment details ===
-                        , environment : function() {
-            
-                            var env_info = {};
-     
-                            if ( window.ADDITIONAL_CUSTOM_CONTEXT ) {
-                                env_info[ 'Additional Context Information' ] = window.ADDITIONAL_CUSTOM_CONTEXT;
-                            }
-     
-                            return env_info;
-                        }
-                        // === default field values ===
-                        , fieldValues : function() {
-     
-                            var values = {};
-             
-                            var error_message = $('.error_message');
-                            if ( error_message.length !== 0 ) {
-    
-                                // record error message from the page context rather than asking the user to enter it
-                                values[ 'summary' ] = error_message.children('.summary').text();
-                                values[ 'description' ] = error_message.children('.description').text();
-    
-                            }
-     
-                            return values;
-     
-                        }
-     
-                    }
-     
-                });
-    
-            });
-        </script>
-    
-    </body>
+    <!-- JIRA Issue Collector - append this at the bottom of <body> -->
+    <script
+      type="text/javascript"
+      src="https://infrrd.atlassian.net/s/en_US-ydn9lh-418945332/803/1088/1.2/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=5a636f91>"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://infrrd.atlassian.net/s/en_US-ydn9lh-418945332/803/1088/1.2/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=5a636f91"
+    ></script>
+
+    <!-- We will customize JIRA in the following script tag -->
+
+    <script type="text/javascript">
+      // safely use jquery here since the issue collector will load it for you
+      $(document).ready(function() {
+        window.ATL_JQ_PAGE_PROPS = $.extend(window.ATL_JQ_PAGE_PROPS, {
+          // ==== feedback collector ====
+          "5a636f91": {
+            // === custom trigger function ===
+            triggerFunction: function(showCollectorDialog) {
+              $("#feedback_button").click(function(e) {
+                e.preventDefault();
+                showCollectorDialog();
+              });
+            },
+
+            // === default and hidden field values ===
+            fieldValues: {
+              // default values
+              summary: "Feedback for new website designs",
+              description: "The font doesn't quite look right",
+
+              // hidden field value
+              priority: "2"
+            }
+          },
+
+          // ==== bug collector ====
+          "5a636f91": {
+            // === custom trigger function ===
+
+            triggerFunction: function(showCollectorDialog) {
+              $("#bug_button").click(function(e) {
+                e.preventDefault();
+                showCollectorDialog();
+              });
+            },
+
+            // === additional environment details ===
+            environment: function() {
+              var env_info = {};
+
+              if (window.ADDITIONAL_CUSTOM_CONTEXT) {
+                env_info["Additional Context Information"] =
+                  window.ADDITIONAL_CUSTOM_CONTEXT;
+              }
+
+              return env_info;
+            },
+            // === default field values ===
+            fieldValues: function() {
+              var values = {};
+
+              var error_message = $(".error_message");
+              if (error_message.length !== 0) {
+                // record error message from the page context rather than asking the user to enter it
+                values["summary"] = error_message.children(".summary").text();
+                values["description"] = error_message
+                  .children(".description")
+                  .text();
+              }
+
+              return values;
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
