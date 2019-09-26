@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <script type="text/javascript">
+      window.ATL_JQ_PAGE_PROPS = {
+        triggerFunction: function(showCollectorDialog) {
+          //Requries that jQuery is available!
+          jQuery("#feedback-button").click(function(e) {
+            e.preventDefault();
+            showCollectorDialog();
+          });
+        }
+      };
+    </script>
+  </head>
   <body>
     <h1>Hello World</h1>
     <p>I'm hosted with GitHub Pages.</p>
     <p>
-        <script type="text/javascript" src="https://infrrd.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/-qcgtvt/b/18/a44af77267a987a660377e5c46e0fb64/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-UK&collectorId=5a636f91"></script>
+      <script
+        type="text/javascript"
+        src="https://infrrd.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/-qcgtvt/b/18/a44af77267a987a660377e5c46e0fb64/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-UK&collectorId=5a636f91"
+      ></script>
+    </p>
+    <p>
+        <h2>JIRA Issue Collector Demo</h2>
+        <a href="#" id="feedback-button" class='btn btn-primary btn-large'>Report feedback</a>
+        
     </p>
   </body>
 </html>
